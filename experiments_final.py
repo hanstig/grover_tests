@@ -11,9 +11,6 @@ from qiskit.providers.fake_provider import FakeOslo
 from qiskit.tools.parallel import parallel_map
 from qiskit.providers.aer.noise import NoiseModel
 
-
-
-
 #
 # Helper functions
 #
@@ -46,15 +43,6 @@ def binary_string_in_list(number_list, binary_string):
             return True
 
     return False    
-
-    # for number in number_list:
-    #     number_string = "{0:b}".format(number).zfill(len(binary_string))
-    #     if (len(binary_string) != len(number_string)):
-    #         raise ValueError(
-    #             'Something went wrong when converting a number to binary string')
-    #     if binary_string == number_string:
-    #         return True
-    # return False
 
 #
 # Grover implementation
@@ -111,7 +99,7 @@ def simulator_experiment(n):
 
     end = time.time()
     
-    with open(f"./results/noiseless_experiment_{n}qubits.txt", "a") as f:
+    with open(f"./noiseless_experiment_{n}qubits.txt", "a") as f:
         print("*---------------", file = f)
         print(f"Results for {n} qubits. time = {end - start} seconds\n", file = f)
         
@@ -162,7 +150,7 @@ def simulator_experiment_noise(n):
 
     end = time.time()
 
-    with open(f"./results/noise_experiment_{n}qubits.txt", "a") as f:
+    with open(f"./noise_experiment_{n}qubits.txt", "a") as f:
         print("*---------------", file = f)
         print(f"Results for {n} qubits. time = {end - start} seconds\n", file = f)
         
